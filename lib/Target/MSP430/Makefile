@@ -14,10 +14,11 @@ TARGET = MSP430
 # Make sure that tblgen is run, first thing.
 BUILT_SOURCES = MSP430GenRegisterInfo.inc MSP430GenInstrInfo.inc \
 		MSP430GenAsmWriter.inc \
+		MSP430GenAsmMatcher.inc \
 		MSP430GenDAGISel.inc MSP430GenCallingConv.inc \
 		MSP430GenSubtargetInfo.inc
 
-DIRS = InstPrinter TargetInfo MCTargetDesc
+DIRS = AsmParser InstPrinter TargetInfo MCTargetDesc
 
 include $(LEVEL)/Makefile.common
 
