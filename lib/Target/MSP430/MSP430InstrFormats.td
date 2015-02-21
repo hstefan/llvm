@@ -207,5 +207,7 @@ class CJForm<bits<3> opcode, bits<3> cond,
 class Pseudo<dag outs, dag ins, string asmstr, list<dag> pattern>
   : MSP430Inst<outs, ins, SizeSpecial, PseudoFrm, asmstr> {
   let Pattern = pattern;
+  let isCodeGenOnly = 1;
+  let isPseudo = 1;
   let Inst{15-0} = 0;
 }
