@@ -152,7 +152,7 @@ if(NOT WIN32 AND NOT APPLE)
     OUTPUT_VARIABLE stdout
     ERROR_QUIET
     )
-  if("${stdout}" MATCHES "GNU gold")
+  if("${stdout}" MATCHES "GNU gold" OR USE_LD_GOLD)
     set(LLVM_LINKER_IS_GOLD ON)
   endif()
 endif()

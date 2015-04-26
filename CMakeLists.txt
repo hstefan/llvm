@@ -515,6 +515,14 @@ else(UNIX)
   endif(NOT DEFINED CMAKE_INSTALL_RPATH)
 endif()
 
+if (UNIX AND GOLD_EXECUTABLE)
+  option (USE_LD_GOLD ON)
+  if (USE_LD_GOLD)
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fuse-ld=gold")
+    set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -fuse-ld=gold")
+  endif()
+endif()
+
 # Work around a broken bfd ld behavior. When linking a binary with a
 # foo.so library, it will try to find any library that foo.so uses and
 # check its symbols. This is wasteful (the check was done when foo.so
